@@ -26,7 +26,7 @@ jobs: # basic units of work in a run
 
       - run:
           name: 単体テスト実行
-          # テスト結果を$TEST_RESULTSディレクトリに保存します
+          # テストを$TEST_RESULTSディレクトリに保存します
           command: | 
             go test -coverprofile=c.out
             go tool cover -html=c.out -o coverage.html
