@@ -2,7 +2,7 @@ version: 2 # CircleCI 2.0 version
 jobs: # basic units of work in a run
   build:
     docker:
-      - image: circleci/golang:1.8
+      - image: circleci/golang:1.12 
     working_directory: /go/src/github.com/SGA-hiromichi-sugawara/gitleaks
 
     environment:
@@ -18,7 +18,7 @@ jobs: # basic units of work in a run
       - run: go get github.com/lib/pq
       - run: go get github.com/mattes/migrate
       - run: go get github.com/jstemmer/go-junit-report
-      - run: go get -u golang.org/x/lint/golint
+      # - run: go get -u golang.org/x/lint/golint
 
       - run:
           name: 単体テスト実行
