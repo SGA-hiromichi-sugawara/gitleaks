@@ -2,7 +2,7 @@ version: 2 # CircleCI 2.0 version
 jobs: # basic units of work in a run
   build:
     docker:
-      - image: cicleci/golang:1.8
+      - image: circleci/golang:1.8
     working_directory: /go/src/github.com/SGA-hiromichi-sugawara/gitleaks
 
     environment:
