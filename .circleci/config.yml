@@ -12,7 +12,7 @@ jobs: # basic units of work in a run
 
     steps:
       - checkout
-      - run: mkdir -p $TEST_RESULTS/junit/
+      - run: mkdir -p $TEST_RESULTS
       - restore_cache: 
           keys:
             - v1-pkg-cache
