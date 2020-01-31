@@ -13,7 +13,7 @@ import (
 )
 
 // Gitlab wraps a gitlab client and manager. This struct implements what the Host interface defines.
-type Gitlab sttruct {
+type Gitlab struct {
 	client  *gitlab.Client
 	manager *manager.Manager
 	ctx     context.Context
