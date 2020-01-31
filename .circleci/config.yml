@@ -21,14 +21,15 @@ jobs: # basic units of work in a run
       - run: go get github.com/lib/pq
       - run: go get github.com/mattes/migrate
       - run: go get -u github.com/jstemmer/go-junit-report
+      - run: go get -u gotest.tools/gotestsum
       # - run: go get -u golang.org/x/lint/golint
 
       - run:
           name: 単体テスト実行
           # テスト結果を$TEST_RESULTSディレクトリに保存します
           command: | 
-            trap "go-junit-report < /tmp/test-results/go-test.out > /tmp/test-results/go-test-report.xml" EXIT
-            make test | tee /tmp/test-results/go-test.out
+            gotestsum --junitfile /tmp/test-results/unit-tests.xml
+
 
       - run: make # プロジェクトの依存関係をプルしてビルド            
       
@@ -42,5 +43,5 @@ jobs: # basic units of work in a run
           destination: raw-test-output
 
       - store_test_results: # Upload test results for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
-          path: /tmp/test-results/go-test-report.xml
+          path: /tmp/test-results
 
