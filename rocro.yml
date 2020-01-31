@@ -5,9 +5,6 @@ inspecode:
   golint:
     thresholds:
       num-issues: 0
-  goimports:
-    thresholds:
-      num-issues: 0
   go-test:
     thresholds:
       num-issues: 0
