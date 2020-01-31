@@ -28,7 +28,9 @@ jobs: # basic units of work in a run
           name: 単体テスト実行
           # テスト結果を$TEST_RESULTSディレクトリに保存します
           command: | 
-            go test -v 2>＆1  | go-junit-report > /tmp/test-results/unit-tests.xml
+            go test -coverprofile=c.out
+            go tool cover -html=c.out -o coverage.html
+            mv coverage.html /tmp/test-results
 
 
       - run: make # プロジェクトの依存関係をプルしてビルド            
