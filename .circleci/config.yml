@@ -37,9 +37,9 @@ jobs: # basic units of work in a run
             - "/go/pkg"
 
       - store_test_results: # テストサマリーを(https://circleci.com/docs/ja/2.0/collect-test-data/)に保存する処理
-          path: test-results
+          path: ~/test-results/go-test-report.yml
               
       - store_artifacts: # アーティファクト(https://circleci.com/docs/ja/2.0/artifacts/)に表示する為の処理
-          path: test-results
+          path: ~/test-results/go-test-report.yml
 
 
