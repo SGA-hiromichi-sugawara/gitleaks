@@ -26,7 +26,7 @@ jobs: # basic units of work in a run
           name: 単体テスト実行
           # テスト結果を$TEST_RESULTSディレクトリに保存します
           command: | 
-            go test -v 2>&1 | go-junit-report > ~/test-results/results.xml
+            go test -v 2>&1 | go-junit-report > results.xml
 
 
       - run: make # プロジェクトの依存関係をプルしてビルド            
@@ -37,9 +37,9 @@ jobs: # basic units of work in a run
             - "/go/pkg"
 
       - store_artifacts: # Upload test summary for display in Artifacts: https://circleci.com/docs/2.0/artifacts/
-          path: ~/test-results
+          path: ~/results.xml
           # destination: raw-test-output
 
       - store_test_results: # Upload test results for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
-          path: ~/test-results
+          path: ~/results.xml
 
