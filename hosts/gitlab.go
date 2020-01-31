@@ -15,7 +15,7 @@ import (
 // Gitlab wraps a gitlab client and manager. This struct implements what the Host interface defines.
 type Gitlab struct {
 	client  *gitlab.Client
-	manage *manager.Manager
+	manager *manager.Manager
 	ctx     context.Context
 	wg      sync.WaitGroup
 }
@@ -71,7 +71,7 @@ func (g *Gitlab) Audit() {
 
 		for _, p := range _projects {
 			if g.manager.Opts.ExcludeForks && p.ForkedFromProject != nil {
-				log.Debugf("excluding forked repo: %s", p.Name)
+				log.Debugf("excluuding forked repo: %s", p.Name)
 				continue
 			}
 			projects = append(projects, p)
