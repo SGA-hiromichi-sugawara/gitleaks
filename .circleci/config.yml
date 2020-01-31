@@ -26,8 +26,8 @@ jobs: # basic units of work in a run
           name: 単体テスト実行
           # テスト結果を$TEST_RESULTSディレクトリに保存します
           command: | 
-            trap "go-junit-report <${TEST_RESULTS}/results.out > ${TEST_RESULTS}/junit/results.xml" EXIT
-            make test | tee ${TEST_RESULTS}/results.out
+            trap "go-junit-report < ~/test-results/results.out > ~/test-results/junit/results.xml" EXIT
+            make test | tee ~/test-results/results.out
 
       - run: make # プロジェクトの依存関係をプルしてビルド            
       
