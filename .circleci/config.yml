@@ -8,7 +8,7 @@ jobs: # basic units of work in a run
     working_directory: /go/src/github.com/SGA-hiromichi-sugawara/gitleaks
 
     environment:
-      TEST_RESULTS: /tmp/test-results
+      TEST_RESULTS: test-results
 
     steps:
       - checkout
@@ -37,8 +37,8 @@ jobs: # basic units of work in a run
             - "/go/pkg"
             
       - store_artifacts: # アーティファクト(https://circleci.com/docs/ja/2.0/artifacts/)に表示する為の処理
-          path: /tmp/test-results
+          path: test-results
           destination: raw-test-output
 
       - store_test_results: # テストサマリーを(https://circleci.com/docs/ja/2.0/collect-test-data/)に保存する処理
-          path: /tmp/test-results
+          path: test-results
