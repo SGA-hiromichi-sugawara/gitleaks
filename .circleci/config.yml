@@ -35,10 +35,11 @@ jobs: # basic units of work in a run
           key: v1-pkg-cache
           paths:
             - "/go/pkg"
-            
-      - store_artifacts: # アーティファクト(https://circleci.com/docs/ja/2.0/artifacts/)に表示する為の処理
-          path: test-results
-          destination: raw-test-output
 
       - store_test_results: # テストサマリーを(https://circleci.com/docs/ja/2.0/collect-test-data/)に保存する処理
           path: test-results
+              
+      - store_artifacts: # アーティファクト(https://circleci.com/docs/ja/2.0/artifacts/)に表示する為の処理
+          path: test-results
+
+
